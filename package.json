@@ -2,9 +2,14 @@
   "name": "docker_http_proxy",
   "version": "0.0.1",
   "description": "proxy container to handle virtual hosts",
-  "main": "index.js",
+  "main": "main.sh",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "network:addloop": "(ifconfig | fgrep 127.0.0.2 > /dev/null) || sudo ifconfig lo0 alias 127.0.0.2 up",
+    "kill-dev-srv": "kill -9 $(sudo lsof -t -i:80 -i:443) 2>/dev/null; echo 0",
+    "docker:stop": "docker stop auto-proxy ; docker rm auto-proxy",
+    "docker:run": "docker run -d -p 127.0.0.2:80:80 -p 127.0.0.2:443:443 -v /var/run/docker.sock:/var/run/docker.sock:ro --name auto-proxy --restart always ayufan/auto-proxy",
+    "proxy:start": "npm-run-all docker:stop docker:run --continue-on-error",
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",
@@ -15,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/santaklouse/docker_http_proxy/issues"
   },
-  "homepage": "https://github.com/santaklouse/docker_http_proxy#readme"
+  "homepage": "https://github.com/santaklouse/docker_http_proxy#readme",
+  "dependencies": {
+    "npm-run-all": "^4.1.3"
+  }
 }
