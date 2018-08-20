@@ -2,9 +2,9 @@
   "name": "docker_http_proxy",
   "version": "0.0.2",
   "description": "proxy container to handle virtual hosts",
-  "main": "bin/main.sh",
+  "main": "bin/main.js",
   "bin": {
-    "docker_http_proxy": "./bin/main.sh"
+    "docker_http_proxy": "./bin/main.js"
   },
   "preferGlobal": true,
   "scripts": {
