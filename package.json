@@ -2,7 +2,11 @@
   "name": "docker_http_proxy",
   "version": "0.0.1",
   "description": "proxy container to handle virtual hosts",
-  "main": "main.sh",
+  "main": "bin/main.sh",
+  "bin": {
+    "docker_http_proxy": "./bin/main.sh"
+  },
+  "preferGlobal": true,
   "scripts": {
     "network:addloop": "(ifconfig | fgrep 127.0.0.2 > /dev/null) || sudo ifconfig lo0 alias 127.0.0.2 up",
     "kill-dev-srv": "kill -9 $(sudo lsof -t -i:80 -i:443) 2>/dev/null; echo 0",
@@ -15,7 +19,7 @@
     "type": "git",
     "url": "git+ssh://git@github.com/santaklouse/docker_http_proxy.git"
   },
-  "author": "",
+  "author": "santaklouse",
   "license": "WTFPL",
   "bugs": {
     "url": "https://github.com/santaklouse/docker_http_proxy/issues"
