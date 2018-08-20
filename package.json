@@ -1,6 +1,6 @@
 {
   "name": "docker_http_proxy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "proxy container to handle virtual hosts",
   "main": "bin/main.sh",
   "bin": {
