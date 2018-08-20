@@ -1,0 +1,19 @@
+{
+  "name": "docker_http_proxy",
+  "version": "0.0.1",
+  "description": "proxy container to handle virtual hosts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/santaklouse/docker_http_proxy.git"
+  },
+  "author": "",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/santaklouse/docker_http_proxy/issues"
+  },
+  "homepage": "https://github.com/santaklouse/docker_http_proxy#readme"
+}
